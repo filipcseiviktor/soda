@@ -1,6 +1,6 @@
-//minden a cresultmatrix nevű modulba lesz wrappelve cresultmatrix.py lesz az eredmény.
-%module cresultmatrix
+%module cresultsmatrix //minden a cresultsmatrix nevű modulba lesz wrappelve cresultsmatrix.py lesz az eredmény.
 
+%import "sys/types.h" //SoDALibDefs.h-ban van
 
 %{
 #define SWIG_FILE_WITH_INIT
@@ -9,7 +9,7 @@
 #include "IBitMatrix.h"
 #include "IBitList.h"
 #include "CSoDAio.h"
-#include "CResultMatrix.h"
+#include "CResultsMatrix.h"
 #include "CIDManager.h"
 #include "CException.h"
 #include "CBitWriter.h"
@@ -17,86 +17,99 @@
 #include "CBitMatrix.h"
 #include "CBitList.h"
 #include "CBinaryIO.h"
+
 %}
-	//SoDALibDefs.h miatt
-	%include "std_string.i"
-	%include "std_vector.i"
-	%include "std_map.i"
-	%include "std_set.i"
-	%include "std_list.i"
+
+	//SoDALibDefs.h innentől
 	
+	%include <stdint.i>	//u_int64 miatt	
+	%include "std_string.i" //engedélyezi az std::stringet-t
+	%include "std_vector.i" //engedélyezi az std::vector-t
+	%include "std_map.i"	//std::map
+	%include "std_set.i"	//std::set
+	%include "std_list.i"	//std::list
 	
-	//nem egészen igy kell csinálni. 31.3.13 nál a példa templateknél
-	//előtte megkeresni az összes templatet, és definiálgatni őket structba
-		//majd  ahogy a példába van 31.3.13 és onnan pedig 6.18 példa
-	using namespace std;  
+
+		//typedef nevek a SWIG számára
+		//https://www.swig.org/Doc2.0/Library.html#Library_std_string
+		// 8.4.2 a példa
 		
-		31.12.3 Abstract base  classes öröklődések
-		ekkor %include pyabc.i //python cuccaiból fog öröklődni ami itt van alatta
-		
+		namespace soda{
+		using namespace std;
 		%template(IntVector) vector<int>;
 		%template(StringVector) vector<String>;
 		%template(StringMap) map<IndexType, String>;
 		%template(IdxStrMap) map<IndexType, IndexType>;
 		%template(ClusterMap) map<string,CClusterDefinition>;
+		}
+
+		
+		%apply unsigned long long { unsigned u_int64_t };
+		
+		
+		//typedefek a SoDALibDefs-ből a SWIG-nek, hogy értelmezni tudja
+		typedef unsigned long long u_int64_t;
+		typedef u_int64_t IndexType;
+		typedef unsigned int RevNumType;
+		typedef CBitList BitList;
+		typedef std::string String;
+		typedef std::vector<IndexType> IntVector;
+		typedef std::vector<String> StringVector;
+		typedef std::map<IndexType, String> StringMap;
+		typedef std::map<String, IndexType> IdxStrMap;
+		typedef std::map<IndexType, IndexType> IdxIdxMap;
+		typedef std::map<std::string, CClusterDefinition> ClusterMap;
 		
 	//SoDALibDefs.h idáig
 
-
-//végén levő conts részekkel nem kel lfoglalkozni
-//todoban a plusz stb operátorok %rename része az jó
-
-%rename(__add__) CBitMatrix::operatorPLUSZJEL
-viszont!
-friend Complex operatorPLUSZ(Complex &, double);
-ekkor: %rename(add_complex_double)
-
-bool operator[](IndexType index) const;
-CBitMatrix& operator=(const CBitMatrix&);
-BitList& operator[](IndexType row) const;
-virtual String operator[](const IndexType) const;
-irtual IndexType operator[](const String&) const;
- CResultsMatrix& operator=(const CResultsMatrix&);
-save loads ????
-virtual bool operator[](IndexType index) const = 0;
-CSoDAio& operator=(const CSoDAio&);
-virtual bool operator==(const IBitList& rhs) const
-virtual bool operator!=(const IBitList& rhs) const
-virtual IBitList& operator[](IndexType row) const = 0;
-virtual bool operator==(const IBitMatrix& rhs) const
-virtual bool operator!=(const IBitMatrix& rhs) const
- virtual String operator[](const IndexType) const = 0;
- virtual IndexType operator[](const String&) const = 0;
+//a CResultsMatrix-hoz tartozó összes header fájlból az összes operator overloading kigyűjtve, Python másképp kezeli
+//ezért át kell nevezni őket
+//operator[] alapértelmezetten ilyen nincs pythonba, ezért ha szükségünk van rá a HEADER fájlokba az operator[] köré be kell illeszteni a #ifndef SWIG és #endif párost
+//egyébként használjuk az %ignore-t. ha elhagyható
+//https://stackoverflow.com/questions/55647750/swig-warning-suppresion-of-operator
+// __eq__  operator=  // __getitem__ operator[] // __ne__ operator!= //python oldalán a többi elnevezés
 
 
-31.3.12 namespaces valamint előzőleg átirányitott oldalon a namespacek
-ha több namespacunk van pl IO::SODA 
-akkor %rename(IO_SODA) IO::SoDa
-majd
-namespace IO{ int spam() } és namespace SODA{( int spam() }
-tehát mind2 helyen bekell hivnunk ugynazon metódusokat, igy mind2 tudni fogja azokat
+//CBitList
+%rename (__eq__cbitlist) soda::CBitList::operator=(const soda::CBitList::CBitlist&);
+%rename (__getitem__cbitlist) soda::CBitList::operator[](soda::CBitList::IndexType index);
 
 
-ha olyanom lesz hogy 
-void add(int x, int y, int pointerValami) vagy ha bárhol van benne pointer
-akkor %include "typemaps.i"  és
-void add(int, int, int pointerOUTPUT)
-(ha void helyett int van akk is.  az outputot a resultból vette hogy az lesz. de lehet input is ha csak két paraméteres
-de ha int helyett objektum van vagy bármi, akk EZ NEM JÓ MEGOLDÁS
+//CBitMatrix
+%rename (__eq__cbitmatrix) soda::CBitMatrix::operator=(const soda::CBitMatrix::CBitMatrix&);
+%rename (__getitem__cbitmatrix) soda::CBitMatrix::operator[](soda::CBitMatrix::IndexType row);
+
+//CIDManager
+%rename (__getitem__cidmanager) soda::CIDManager::operator[](const soda::CIDManager::IndexType);
 
 
+//CResultsMatrix
+%rename(__eq__cresultsmatrix) soda::CResultsMatrix::operator=(const soda::CResultsMatrix::CResultsMatrix&);
 
 
-Ignored résznél:
-"If any base class is undefined, SWIG still generates correct type relationships)
+//CSoDAio
+%rename(__eq__csodaio) soda::io::CSoDAio::operator=(const soda::io::CSoDAio::CSoDAio&);
 
--fvirtual "avoids the regenerationg of wrapper functions for virtual members that are already defined in a base class"
+
+//IBitList
+%rename (__getitem__ibitlist) soda::IBitList::operator[](soda::IBitList::IndexType index);
+%rename (__eq__ibitlist) soda::IBitList::opreator==(const soda::IBitLists::IBitList& rhs);
+%rename (__ne__ibitlist) soda::IBitList::operator!=(const soda::IBitLists::IBitList& rhs);
+
+//IBitMatrix
+%rename (__eq__ibitmatrix) soda::IBitMatrix::opreator==(const soda::IBitMatrix::IBitMatrix& rhs);
+%rename (__ne__ibitmatrix) soda::IBitMatrix::opreator!=(const soda::IBitMatrix::IBitMatrix& rhs);
+
+
+// http://www.swig.org/Doc1.3/SWIG.html
+//"Copy the appropriate declarations into the interface file, or use SWIG's %include directive to process an entire C source/header file.
+
 %include "SoDALibDefs.h"
 %include "IIDManager.h"
 %include "IBitMatrix.h"
 %include "IBitList.h"
 %include "CSoDAio.h"
-%include "CResultMatrix.h"
+%include "CCResultsMatrix.h"
 %include "CIDManager.h"
 %include "CException.h"
 %include "CBitWriter.h"
