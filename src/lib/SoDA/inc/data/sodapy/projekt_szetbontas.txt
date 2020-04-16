@@ -1,0 +1,20 @@
+A projekt szétbontása úgy valósult meg, hogy minden egyes .cpp-t egy külön mappában helyeztem el.
+A mappákban a .cpp-k mellett azon header fájlok helyezkednek el, amelyek szükségesek az adott .cpp-hez. (minden amit az adott .cpp használ/behúz)
+Ahhoz, hogy melyik .cpp - mit használ (melyek kerüljenek egy mappába) ahhoz a word fájlokban levő FA nyújt segítséget.
+
+
+1. A .cpp-kben a sorok mögé fel van tüntetve, hogy éppen az a belső függvény melyik header-fájlt használja, és annak melyik függvényét
+
+2. Ezek a függvények végül a header fájlokban csoportosítva vannak, a többi függvény pedig törölve. Ezáltal jóval csökkentve a megvalósítandó funkciókat.
+
+3. Mivel minden .cpp-hez más header fájlok és belső függvények tartoznak, mindegyiknél ezt meg kell vizsgálni és megismételni. (ezért is van külön mappában mindegyik)
+
+4. Ezáltal minden .cpp-hez külön elkészíthető az interface fájl, jóval kevesebb hibalehetőséggel.
+
+Például:
+
+CResultsMatrix.cpp: van getNumOfCols(), getNumOfRows() függvénye, melyek az IBitMatrix-ból származnak
+			Ezek a függvények megmaradnak az IBitMatrix-ban, a többi törölve.
+
+Viszont lehet, hogy a CCoverageMatrix-ban az IBitMatrix-ból csak a get() és set() kell és a többi nem kell, ezért ott más függvények maradnak és a többi lesz törölve.
+
