@@ -55,7 +55,7 @@ bool CIDMapper::containsValue(const String &value) const  //containsValue() --> 
 IndexType CIDMapper::getID(const String& value) const   //getID() -->CIDMapper.h , IIDManager.h
 {
     if (!m_globalIdManager->containsValue(value)) {
-        throw std::out_of_range("Value is not present in the Mapper.");
+       // throw std::out_of_range("Value is not present in the Mapper.");
     }
 
     IndexType globalIdx = m_globalIdManager->getID(value);
@@ -64,7 +64,7 @@ IndexType CIDMapper::getID(const String& value) const   //getID() -->CIDMapper.h
     if(it != m_globalToLocal.end()) {
         return it->second;
     }
-    throw std::out_of_range("Value is not present in the Mapper.");
+  //  throw std::out_of_range("Value is not present in the Mapper.");
 }
 
 String CIDMapper::getValue(const IndexType id) const   //getValue() -->CIDMapper.h, IIDManager.h
@@ -94,15 +94,11 @@ StringVector CIDMapper::getValueList() const  //getValueList() --> CIDManager.h 
 }
 
 
-IndexType CIDMapper::operator[](const String& codeElementName) const
-{
-    return getID(codeElementName);
-}
 
 IndexType CIDMapper::getLastIndex() const
 {
     if (m_localToGlobal.empty()) {
-        throw std::length_error("The manager is empty.");
+      //  throw std::length_error("The manager is empty.");
     }
     return m_localToGlobal.rbegin()->first;
 }
