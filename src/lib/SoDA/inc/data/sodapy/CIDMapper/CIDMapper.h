@@ -78,11 +78,7 @@ public:
     virtual StringVector getValueList() const;
 
 
-    /**
-     * @brief Returns the id of the value.
-     * @return The id of the string value.
-     */
-    virtual IndexType operator[](const String&) const;
+  
     /**
      * @brief Returns the last inserted id.
      * @return The last inserted id.
@@ -131,7 +127,14 @@ public:
 
 
 /**
-     * @brief Removes an element by its id.
+  /**
+     * @brief Returns the id of the value.
+     * @return The id of the string value.
+  
+    virtual IndexType operator[](const String&) const;
+    
+    
+     * @brief Removes an element by its id. 
      
     virtual void remove(const IndexType);*/
     

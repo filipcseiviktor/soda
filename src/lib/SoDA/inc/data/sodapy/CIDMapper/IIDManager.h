@@ -69,12 +69,6 @@ public:
      * @return The list of the available values.
      */
     virtual StringVector getValueList() const = 0;
-    /**
-     * @brief Returns the id of the value.
-     * @return The id of the string value.
-     * @throw std::out_of_range If the id is not present in the Manager.
-     */
-    virtual IndexType operator[](const String&) const = 0;
 
    /**
      * @brief Returns the last inserted id.
@@ -125,6 +119,14 @@ public:
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+      /**
+     * @brief Returns the id of the value.
+     * @return The id of the string value.
+     * @throw std::out_of_range If the id is not present in the Manager.
+    
+    virtual IndexType operator[](const String&) const = 0;
+ */
     /**
      * @brief Removes an element by its id.
    
