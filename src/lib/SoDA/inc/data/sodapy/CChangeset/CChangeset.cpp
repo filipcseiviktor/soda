@@ -84,7 +84,7 @@ void CChangeset::addRevision(const IntVector& revisionNumbers)
 
 void CChangeset::addCodeElement(const String& codeElementName)
 {
-    m_codeElements->add(codeElementName);  //add()-->IIDManager.h
+    m_codeElements->add(codeElementName);  //add()-->,CIDManager, IIDManager.h
     IntVector revNums = m_changes->getRevisionNumbers();
     for(IndexType i = 0; i < revNums.size(); i++) {
         m_changes->getRevision(revNums[i])->push_back(false);

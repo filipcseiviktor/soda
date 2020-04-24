@@ -82,6 +82,10 @@ public:
      * @return The number of elements in the manager.
      */
     virtual IndexType size() const; //cpp-hez kell
+     /**
+     * @brief Adds a value to the manager as the last element.
+   */
+    virtual void add(const String&);
 //////////////////////////////////////////////////////////////
 
 
@@ -135,10 +139,7 @@ public:
 
     virtual void add(const IndexType, const String&);
 
-    /**
-     * @brief Adds a value to the manager as the last element.
-  
-    virtual void add(const String&);
+   
 
     /**
      * @brief Removes an element by its id.
