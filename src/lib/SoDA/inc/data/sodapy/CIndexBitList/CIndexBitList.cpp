@@ -125,7 +125,7 @@ CIndexBitList::~CIndexBitList()
 bool CIndexBitList::front() const
 {
     if(m_size == 0)
-        throw CException("soda::CIndexBitList::front()","The list is empty!");
+      //  throw CException("soda::CIndexBitList::front()","The list is empty!");
 
     if(m_data->size() == 0) {
         return false;
@@ -136,7 +136,7 @@ bool CIndexBitList::front() const
 bool CIndexBitList::back() const
 {
     if(m_size == 0)
-        throw CException("soda::CIndexBitList::back()","The list is empty!");
+    //    throw CException("soda::CIndexBitList::back()","The list is empty!");
 
     if(m_data->size() == 0) {
         return false;
