@@ -74,6 +74,11 @@ public:
      * @return Number of 1 elements.
      */
     IndexType count() const; //cpp-hez kell
+        /**
+     * @brief Returns the size of the vector.
+     * @return Size of the vector.
+  */
+    IndexType size() const; 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -146,13 +151,6 @@ public:
      * @return Value stored at the given position.
 
     bool operator[](IndexType index) const;
-
-    /**
-     * @brief Returns the size of the vector.
-     * @return Size of the vector.
-
-    IndexType size() const; 
-
    
 
 
