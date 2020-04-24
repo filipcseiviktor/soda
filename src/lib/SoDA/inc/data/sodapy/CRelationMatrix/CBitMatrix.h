@@ -89,13 +89,13 @@ public:
     /**
      * @brief Returns in the given parameter how many true elements are in each row of the matrix.
      * @param v  Vector reference.
-     */
+    
     void rowCounts(std::vector<IndexType> &v) const;
 
     /**
      * @brief Returns in the given parameter how many true elements are in each column of the matrix.
      * @param v  Vector reference.
-     */
+
     void colCounts(std::vector<IndexType> &v) const;
 
     /**

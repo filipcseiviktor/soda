@@ -82,7 +82,7 @@ public:
     /**
      * @brief Returns true if the ID is present in the Manager.
      * @return true if the ID is present in the Manager.
-     */
+
     virtual bool containsValue(const String&) const;
 
     /**
@@ -138,7 +138,7 @@ public:
 
     /**
      * @brief Adds a value to the manager as the last element.
-     */
+  
     virtual void add(const String&);
 
     /**
