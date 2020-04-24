@@ -61,7 +61,12 @@ public:
     virtual void clear() = 0;
 
 
-
+    /**
+     * @brief Returns the id of the value.
+     * @return The id of the string value.
+     * @throw std::out_of_range If the id is not present in the Manager.
+*/
+    virtual IndexType operator[](const String&) const = 0;
 
 
 
@@ -100,12 +105,7 @@ public:
    
     virtual String operator[](const IndexType) const = 0;
 
-    /**
-     * @brief Returns the id of the value.
-     * @return The id of the string value.
-     * @throw std::out_of_range If the id is not present in the Manager.
 
-    virtual IndexType operator[](const String&) const = 0;
 
     /**
      * @brief Returns the last inserted id.
