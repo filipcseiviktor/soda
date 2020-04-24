@@ -46,16 +46,16 @@
 
 
 //CResultsMatrix
-%rename(__eq__cresultsmatrix) soda::CResultsMatrix::operator=(const soda::CResultsMatrix::CResultsMatrix&);
+%rename(__eq__cresultsmatrix) CResultsMatrix::operator=(const CResultsMatrix::CResultsMatrix&);
 
 //CIDManager
-%rename (__getitem__indextype_cidmanager) soda::CIDManager::operator[](const soda:CIDManager::String&);
+%rename (__getitem__indextype_cidmanager) CIDManager::operator[](const CIDManager::String&);
 
-//CIDManager
-%rename (__getitem__indextype_iidmanager) soda::IIDManager::operator[](const soda:IIDManager::String&);
+//IIDManager
+%rename (__getitem__indextype_iidmanager) IIDManager::operator[](const IIDManager::String&);
 
 //CBitMatrix
-%rename(__eq__cbitmatrix) soda::CBitMatrix::operator=(const soda::CBitMatrix::CBitMatrix&);
+%rename(__eq__cbitmatrix) CBitMatrix::operator=(const CBitMatrix::CBitMatrix&);
 
 
 %include "CResultsMatrix.h" 
