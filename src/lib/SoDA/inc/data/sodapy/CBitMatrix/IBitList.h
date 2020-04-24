@@ -72,6 +72,13 @@ public:
      */
     virtual IndexType count() const = 0; //cpp-hez kell
 
+
+   /**
+     * @brief Returns the value stored at the given position in the vector.
+     * @param index  position of the element.
+     * @return Value stored at the given position.
+   */
+    virtual bool operator[](IndexType index) const = 0;
     ///////////  ///////////  ///////////  ///////////  ///////////  ///////////  ///////////  ///////////  ///////////
 
 
@@ -149,12 +156,7 @@ public:
 
 
 
-    /**
-     * @brief Returns the value stored at the given position in the vector.
-     * @param index  position of the element.
-     * @return Value stored at the given position.
-   
-    virtual bool operator[](IndexType index) const = 0;
+ 
 
     /**
      * @brief Returns an iterator which points at the first element in the vector.
