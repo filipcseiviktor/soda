@@ -42,6 +42,18 @@
 	//SoDALibDefs.h idáig
 
 
+//operátorok
+
+//CBitList
+%rename(__eq__cbitlist) soda::CBitList::operator=(const soda::CBitList::CBitList&);
+
+//CBitMatrix
+%rename(__eq__cbitmatrix) soda::CBitMatrix::operator=(const soda::CBitMatrix::CBitMatrix&);
+
+//CRelationMatrix
+%rename(__eq__crelationmatrix) soda::CRelationMatrix::operator=(const soda::CRelationMatrix::CRelationMatrix&);
+
+
 
 %include "CRelationMatrix.h"
 %include "CBitMatrix.h"
