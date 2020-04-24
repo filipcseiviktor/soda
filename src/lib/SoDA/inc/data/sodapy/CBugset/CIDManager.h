@@ -122,6 +122,17 @@ public:
      * @throw std::out_of_range If the id is not present in the Manager.
      */
     virtual IndexType operator[](const String&) const;
+    /**
+     * @brief Returns true if the ID is present in the Manager.
+     * @return true if the ID is present in the Manager.
+      */
+    virtual bool containsValue(const String&) const;
+    
+    /**
+     * @brief Returns the list of the available ids.
+     * @return The list of the available ids.
+   */
+    virtual IntVector getIDList() const;
     /////////////////////////////////////////////////////////////////////////////
 
 
@@ -132,19 +143,10 @@ public:
 
 
 
-    /**
-     * @brief Returns true if the ID is present in the Manager.
-     * @return true if the ID is present in the Manager.
     
-    virtual bool containsValue(const String&) const;
 
 
 
-    /**
-     * @brief Returns the list of the available ids.
-     * @return The list of the available ids.
-  
-    virtual IntVector getIDList() const;
 
 
 

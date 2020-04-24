@@ -60,7 +60,7 @@ CBugset::~CBugset()
 
 CodeElementReports& CBugset::operator[](const String& revisionNumber) const
 {
-    return (*m_reports)[m_revisions->getID(revisionNumber)];			//getID()-->IIDManager.h
+    return (*m_reports)[m_revisions->getID(revisionNumber)];			//getID()-->,CIDMANAGER, IIDManager.h
 }
 
 CodeElementReports& CBugset::at(const String& revisionNumber) const
@@ -70,7 +70,7 @@ CodeElementReports& CBugset::at(const String& revisionNumber) const
 
 bool CBugset::exists(const String& revisionNumber) const
 {
-    if (!m_revisions->containsValue(revisionNumber)) {  //containsValue()-->IIDManager.h
+    if (!m_revisions->containsValue(revisionNumber)) {  //containsValue()-->,CIDMANAGER, IIDManager.h
         return false;
     }
     return m_reports->count(m_revisions->getID(revisionNumber)) != 0;  //count()--> CIndexBitList.h 
@@ -83,7 +83,7 @@ StringVector CBugset::getRevisions(const String& codeElementName) const
     for(IndexType i = 0; i < revNums.size(); i++) {  //size()-->CIDManager.h, CINdexBitList.h, IBitList.h, IIDManager.h
         if ((*m_reports)[revNums[i]].find((*m_codeElements)[codeElementName]) != (*m_reports)[revNums[i]].end()) //end()-->CIndexBitlist,IBitList
             result.push_back(m_revisions->getValue(revNums[i])); //push_back()-->CIndexBitlist,IBitList
-                                                                    //getVAlue()-->IIDManager
+                                                                    //getVAlue()-->,CIDmanager, IIDManager
     }
     return result;
 }
