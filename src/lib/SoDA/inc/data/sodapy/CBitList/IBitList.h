@@ -155,7 +155,7 @@ public:
     /**
      * @brief Set the same value for the entire vector.
      * @param value  Value to be set.
-     */
+     
     virtual void setAll(const bool value = false)
     {
         for(IndexType i = 0; i < size(); ++i) {
@@ -167,7 +167,7 @@ public:
      * @brief Writes the values and the type of the object to an output stream.
      * @param out  Output stream.
      * @param chunk  Type of the data.
-     */
+     
     virtual void save(io::CBinaryIO* out, const io::CSoDAio::ChunkID chunk = io::CSoDAio::BITLIST) const
     {
         IndexType count = size();
@@ -189,7 +189,7 @@ public:
     /**
      * @brief Reads data from the input stream.
      * @param in  Input stream.
-     */
+    
     virtual void load(io::CBinaryIO* in)
     {
         IndexType size = in->readULongLong8();
@@ -207,7 +207,7 @@ public:
      * @brief Returns true if the two objects have the same size and values otherwise false.
      * @param rhs  Object to be compared.
      * @return True if the two objects have the same size and values otherwise false.
-     */
+    
     virtual bool operator==(const IBitList& rhs) const
     {
         if(size() != rhs.size()) {
@@ -225,7 +225,7 @@ public:
      * @brief Rrue if the two objects have different size and values otherwise false.
      * @param rhs  Object to be compared.
      * @return True if the two objects have different size and values otherwise false.
-     */
+    
     virtual bool operator!=(const IBitList& rhs) const
     {
         if(size() != rhs.size()) {
@@ -237,7 +237,7 @@ public:
             }
         }
         return false;
-    }
+    } */
 };
 
 } // namespace soda
