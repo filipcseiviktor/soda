@@ -32,8 +32,7 @@
 		%template(StringMap) map<IndexType, String>;
 		%template(IdxStrMap) map<IndexType, IndexType>;
 		%template(ClusterMap) map<string,CClusterDefinition>;
-		}
-
+		};
 		
 		%apply unsigned long long { unsigned u_int64_t };
 		
@@ -42,16 +41,18 @@
 //operátorok
 
 //IIDManager
-%rename(__getitem__iidmanager_string) soda::IIDManager::operator[](const soda::IIDManager::IndexType);
+%rename(__getitem__iidmanager_string) IIDManager::operator[](const IIDManager::IndexType);
 
 //CIndexBitList
-%rename(__getitem__cindexbitlist) soda::CIndexBitList::operator[](soda::CIndexBitList::IndexType soda::CIndexBitList::pos);
-%rename(__eq__cindexbitlist) soda::CIndexBitList::operator=(const soda::CIndexBitList:CIndexBitList&);
+%rename(__getitem__cindexbitlist) CIndexBitList::operator[](CIndexBitList::IndexType CIndexBitList::pos);
+%rename(__eq__cindexbitlist) CIndexBitList::operator=(const CIndexBitList:CIndexBitList&);
 
 //IBitList
-%rename(__getitem__ibitlist) soda::IBitList::operator[](soda::IBitList::IndexType soda::IBitList::index);
+%rename(__getitem__ibitlist) IBitList::operator[](IBitList::IndexType IBitList::index);
 
-//IIterators
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
+//IIterators 
 
 
 %include "SoDALibDefs.h"
