@@ -41,22 +41,22 @@
 //operátorok
 
 //CBugset
-%rename(__getitem__cbugset) soda::CBugset::operator[](const soda::CBugset::String& soda::CBugset::revisionNumber);
+%rename(__getitem__cbugset) CBugset::operator[](const CBugset::String& CBugset::revisionNumber);
 
 
 //CIDManager
-%rename(__getitem__cidmanager_string) soda::CIDManager::operator[](const soda::CIDManager::IndexType);
-%rename(__getitem__cidmanager_indextype) soda::CIDManager::operator[](const soda::CIDManager::String&);
+%rename(__getitem__cidmanager_string) CIDManager::operator[](const CIDManager::IndexType);
+%rename(__getitem__cidmanager_indextype) CIDManager::operator[](const CIDManager::String&);
 
 //IIDManager
-%rename(__getitem__iidmanager_string) soda::IIDManager::operator[](const soda::IIDManager::IndexType);
-%rename(__getitem__iidmanager_indextype) soda::IIDManager::operator[](const soda::IIDManager::String&);
+%rename(__getitem__iidmanager_string) IIDManager::operator[](const IIDManager::IndexType);
+%rename(__getitem__iidmanager_indextype) IIDManager::operator[](const IIDManager::String&);
 
 //IBitList
-%rename(__getitem__ibitlist) soda::IBitList::operator[](soda:IBitList::IndexType soda::IBitList::index);
+%rename(__getitem__ibitlist) IBitList::operator[](IBitList::IndexType IBitList::index);
 
 //CIndexBitList
-%rename(__eq__cindexbitlist) soda::CIndexBitList::operator=(const soda:CIndexBitList CIndexBitList&);
+%rename(__eq__cindexbitlist) CIndexBitList::operator=(const CIndexBitList CIndexBitList&);
 
 
 
