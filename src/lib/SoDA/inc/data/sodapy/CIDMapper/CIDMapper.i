@@ -38,7 +38,9 @@
 	
 		
 	//SoDALibDefs.h idáig
-
+	
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
 
 %include "CIDMapper.h"
 %include "CBinaryIO.h"
