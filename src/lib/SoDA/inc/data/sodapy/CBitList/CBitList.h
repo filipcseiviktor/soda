@@ -38,122 +38,133 @@ public:
     /**
      * @brief Contructor, creates an empty CBitList object.
      */
-    CBitList();
+    CBitList(); //cpp-hez kell
+
 
     /**
      * @brief Creates a CBitList ojbect and contructs a vector with size elements.
      * @param size  Size of the vector.
      */
-    CBitList(IndexType size);
+    CBitList(IndexType size); //cpp-hez kell
+
 
     /**
      * @brief Destorys a CBitList object.
      */
-    ~CBitList();
+    ~CBitList(); //cpp-hez kell
+
+   /**
+     * @brief Returns the value stored at given position in the vector.
+     * @param index  Position of the element.
+     * @throw Exception if index is out of bounds.
+     * @return Value stored at the given position.
+     */
+    bool at(IndexType index) const; //cpp-hez kell
+
+
+    /**
+     * @brief Adds a new element at the end of the vector.
+     * @param value  Value to be stored in the new element.
+     */
+    void push_back(bool value); //cpp-hez kell
+
+
+ /**
+     * @brief Returns the number of 1 elements in the vector.
+     * @return Number of 1 elements.
+     */
+    IndexType count() const; //cpp-hez kell
+        /**
+     * @brief Returns the size of the vector.
+     * @return Size of the vector.
+  */
+    IndexType size() const; 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
     /**
      * @brief Returns the value of the first element in the vector.
      * @throw Exception if the vector is empty.
      * @return Value stored at the first element in the vector.
-     */
+    
     bool front() const;
 
     /**
      * @brief Returns the value of the last element in the vector.
      * @throw Exception if the vector is empty.
      * @return Value stored at the last element in the vector.
-     */
+ 
     bool back() const;
 
-    /**
-     * @brief Returns the value stored at given position in the vector.
-     * @param index  Position of the element.
-     * @throw Exception if index is out of bounds.
-     * @return Value stored at the given position.
-     */
-    bool at(IndexType index) const;
-
-    /**
-     * @brief Adds a new element at the end of the vector.
-     * @param value  Value to be stored in the new element.
-     */
-    void push_back(bool value);
 
     /**
      * @brief Set the value at the given position in the vector.
      * @param index  Position of the element.
      * @param value  Value to be set at index position.
      * @throw Exception if index is out of bounds.
-     */
+
     void set(IndexType index, bool value);
 
     /**
      * @brief Set the value to the opposite at the given position in the vector.
      * @param index  Position of the element.
      * @throw Exception if index is out of bounds.
-     */
+ 
     void toggleValue(IndexType index);
 
     /**
      * @brief Removes the last element in the vector.
      * @throw Exception if the vector is empty.
-     */
+
     void pop_back();
 
     /**
      * @brief Removes the first element in the vector.
      * @throw Exception if the vector is empty.
-     */
+
     void pop_front();
 
     /**
      * @brief Removes an element at the given position from the vector.
      * @param index  Position of the element.
      * @throw Exception if index is out of bounds.
-     */
+
     void erase(IndexType index);
 
     /**
      * @brief Change the size of the vector.
      * @param newSize  New size of the vector.
-     */
+
     void resize(IndexType newSize);
 
     /**
      * @brief Set the object's attributes to default value.
-     */
+
     void clear();
 
     /**
      * @brief Returns the value stored at the given position in the vector.
      * @param index  Position of the element.
      * @return Value stored at the given position.
-     */
+
     bool operator[](IndexType index) const;
+   
 
-    /**
-     * @brief Returns the size of the vector.
-     * @return Size of the vector.
-     */
-    IndexType size() const;
-
-    /**
-     * @brief Returns the number of 1 elements in the vector.
-     * @return Number of 1 elements.
-     */
-    IndexType count() const;
 
     /**
      * @brief Returns an iterator which points at the first element in the vector.
      * @return Iterator which points at the first element in the vector.
-     */
+ 
     IBitListIterator& begin();
 
     /**
      * @brief Returns an iterator which points at the last element in the vector.
      * @return Iterator which points at the last element in the vector.
-     */
-    IBitListIterator& end();
+   
+    IBitListIterator& end();  */
 
 private:
     class ListIterator;
@@ -174,22 +185,23 @@ private:
     /**
      * @brief Bitlist represented as bool values.
      */
-    std::vector<bool>* m_data;
+    std::vector<bool>* m_data; //cpp-hez kell
+
 
     /**
      * @brief An iterator pointer to the first element of the vector.
-     */
-    ListIterator* m_beginIterator;
+
+    ListIterator* m_beginIterator;     */
 
     /**
      * @brief An iterator pointer to the last element of the vector.
-     */
-    ListIterator* m_endIterator;
+ 
+    ListIterator* m_endIterator;    */
 
     /**
      * @brief Number of 1 elements in the vector.
-     */
-    IndexType m_count;
+  
+    IndexType m_count;   */
 };
 
 } // namespace soda
