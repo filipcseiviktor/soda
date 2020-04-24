@@ -50,12 +50,7 @@ public:
     virtual bool get(IndexType row, IndexType col) const = 0;  //cpp-hez kell
 
 
-    /**
-     * @brief Returns the given row of the matrix as a bitlist.
-     * @param row  Row number.
-     * @return Row of the matrix as bitlist.
-     */
-    virtual IBitList& operator[](IndexType row) const = 0;
+
 
     
     /**
@@ -124,7 +119,12 @@ virtual void save(io::CBinaryIO* out, const io::CSoDAio::ChunkID chunk = io::CSo
 
 
 
-
+    /**
+     * @brief Returns the given row of the matrix as a bitlist.
+     * @param row  Row number.
+     * @return Row of the matrix as bitlist.
+  
+    virtual IBitList& operator[](IndexType row) const = 0;   */
 
 
 
