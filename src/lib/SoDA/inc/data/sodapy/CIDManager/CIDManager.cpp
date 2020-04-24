@@ -80,7 +80,7 @@ IndexType CIDManager::getID(const String& value) const
     if(it != m_adat.end()) {
         return it->second;
     }
-    throw std::out_of_range("Value is not present in the Manager.");
+   // throw std::out_of_range("Value is not present in the Manager.");
 }
 
 String CIDManager::getValue(const IndexType id) const
@@ -123,7 +123,7 @@ IndexType CIDManager::operator[](const String& codeElementName) const
 IndexType CIDManager::getLastIndex() const
 {
     if (m_data.empty()) {
-        throw std::length_error("The manager is empty.");
+      //  throw std::length_error("The manager is empty.");
     }
     return m_data.rbegin()->first;
 }
