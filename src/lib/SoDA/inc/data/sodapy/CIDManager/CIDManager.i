@@ -39,14 +39,15 @@
 //operátorok
 
 //CIDManager
-%rename(__getitem__cidmanager_string) soda::CIDManager::operator[](const soda::CIDManager::IndexType);
-%rename(__getitem__cidmanager_indextype) soda::CIDManager::operator[](const soda::CIDManager::String&);
+%rename(__getitem__cidmanager_string) CIDManager::operator[](const CIDManager::IndexType);
+%rename(__getitem__cidmanager_indextype) CIDManager::operator[](const CIDManager::String&);
 
 //IIDManager
-%rename(__getitem__iidmanager_string) soda::IIDManager::operator[](const soda::IIDManager::IndexType);
-%rename(__getitem__iidmanager_indextype) soda::IIDManager::operator[](const soda::IIDManager::String&);
+%rename(__getitem__iidmanager_string) IIDManager::operator[](const IIDManager::IndexType);
+%rename(__getitem__iidmanager_indextype) IIDManager::operator[](const IIDManager::String&);
 
-
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
 
 %include "SoDALibDefs.h"
 %include "CBinaryIO.h"
