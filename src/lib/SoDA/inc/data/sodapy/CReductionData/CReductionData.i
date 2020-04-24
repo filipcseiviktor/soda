@@ -46,14 +46,15 @@
 //operátorok
 
 //IIDManager
-%rename(__get__iidmanager_string) soda::IIDManager::operator[](const soda::IIDManager::IndexType);
-%rename(__get__iidmanager_indextype) soda::IIDManager::operator[](const soda::IIDManager::String&);
+%rename(__get__iidmanager_string) IIDManager::operator[](const IIDManager::IndexType);
+%rename(__get__iidmanager_indextype) IIDManager::operator[](const IIDManager::String&);
 //CIDManager
-%rename(__get__cidmanager_string) soda::CIDManager::operator[](const soda::CIDManager::IndexType);
-%rename(__get__cidmanager_indextype) soda::CIDManager::operator[](const soda::CIDManager::String&);
+%rename(__get__cidmanager_string) CIDManager::operator[](const CIDManager::IndexType);
+%rename(__get__cidmanager_indextype) CIDManager::operator[](const CIDManager::String&);
 //CCoverageMatrix
-%rename(__eq__ccoveragematrix) soda::CCoverageMatrix::operator=(const soda::CCoverageMatrix::CCoverageMatrix&);
-
+%rename(__eq__ccoveragematrix) CCoverageMatrix::operator=(const CCoverageMatrix::CCoverageMatrix&);
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
 
 %include "CBinaryIO.h"
 %include "CBitReader.h"
