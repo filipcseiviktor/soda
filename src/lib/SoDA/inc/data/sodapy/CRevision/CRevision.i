@@ -2,10 +2,10 @@
 
 %{
 #define SWIG_FILE_WITH_INIT
-#include "CRevision.h" //minden kell belőle, cpp-miatt a következők kellenek:
+#include "CRevision.h" 
 #include "CBinaryIO.h" // writeInt4(), writeULongLong8(), writeUInt4(),....
 #include "CSoDAio.h"
-#include "SoDALibDefs.h" //
+#include "SoDALibDefs.h" 
 #include  "IBitList.h" //count(),at(),erase(),push_back(),begin(),end(),size(),clear() miatt
 %}
 
@@ -35,12 +35,17 @@
 		
 		%apply unsigned long long { unsigned u_int64_t };
 		
-		
-	
-		
 	//SoDALibDefs.h idáig
+	
+	
+//operátorok
 
+//CRevision
+%rename(__eq__crevision) soda::CRevision::operator=(const soda::CRevision::CRevision&);
+%rename(__getitem__crevision) soda::CRevision::operator[](const int soda::CRevision::rev);
 
+//IBitList
+%rename(__getitem__ibitlist) soda::IBitList::operator[](const soda::CRevision::IndexType soda::CRevision::index);
 
 
 %include "SoDALibDefs.h"
