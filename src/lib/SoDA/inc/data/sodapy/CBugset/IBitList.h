@@ -85,7 +85,12 @@ public:
 
 
 
-
+  /**
+     * @brief Returns the value stored at the given position in the vector.
+     * @param index  position of the element.
+     * @return Value stored at the given position.
+     */
+    virtual bool operator[](IndexType index) const = 0;
 
 
 
@@ -160,12 +165,7 @@ public:
     virtual void clear() = 0;
 
 
-    /**
-     * @brief Returns the value stored at the given position in the vector.
-     * @param index  position of the element.
-     * @return Value stored at the given position.
-     */
-    virtual bool operator[](IndexType index) const = 0;
+  
 
  
 

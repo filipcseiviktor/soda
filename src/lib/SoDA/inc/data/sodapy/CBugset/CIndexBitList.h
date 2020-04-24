@@ -100,14 +100,14 @@ public:
      * @brief Returns the value of the first element in the vector.
      * @throw Exception if the vector is empty.
      * @return Value of the first element in the vector.
-     */
+    
     bool front() const;
 
     /**
      * @brief Returns the value of the last element in the vector
      * @throw Exception if the vector is empty.
      * @return Value of the last element in the vector.
-     */
+   
     bool back() const;
 
     /**
@@ -115,7 +115,7 @@ public:
      * @param pos  Index position.
      * @throw Exception if the parameter is out of bounds.
      * @return The value at the given position of the vector.
-     */
+    
     bool at(IndexType pos) const;
 
 
@@ -125,26 +125,26 @@ public:
      * @param pos  Position of the element.
      * @param value  Value to be set at index position.
      * @throw Exception if index is out of bounds.
-     */
+  
     void set(IndexType pos, bool value);
 
     /**
      * @brief Set the element of the vector to the opposite at the given position.
      * @param pos  Index position
      * @throw Exception if index is out of bounds.
-     */
+     
     void toggleValue(IndexType pos);
 
     /**
      * @brief Removes the last element in the vector.
      * @throw Exception if the vector is empty.
-     */
+    
     void pop_back();
 
     /**
      * @brief Removes the first element in the vector.
      * @throw Exception if the vector is empty.
-     */
+     
     void pop_front();
 
 
@@ -152,12 +152,12 @@ public:
     /**
      * @brief Change the size of the vector.
      * @param newSize New size of the vector.
-     */
+    
     void resize(IndexType newSize);
 
     /**
      * @brief Set the object's attributes to default value.
-     */
+    
     void clear();
 
 
@@ -165,8 +165,8 @@ public:
      * @brief Return the value at the given position of the vector.
      * @param pos  Position of the element.
      * @return Value at the given position of the vector.
-     */
-    bool operator[](IndexType pos) const;
+     
+    bool operator[](IndexType pos) const;*/
   
 private:
     class ListIterator;

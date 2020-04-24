@@ -96,6 +96,20 @@ public:
      * @brief Removes an element by its value.
      */
     virtual void remove(const String&) = 0; //cpp-hez kell
+    
+    /**
+     * @brief Returns the value that belongs to the id.
+     * @return The value that belongs to the id.
+     * @throw std::out_of_range If the value is not present in the Manager.
+*/
+    virtual String operator[](const IndexType) const = 0;
+
+    /**
+     * @brief Returns the id of the value.
+     * @return The id of the string value.
+     * @throw std::out_of_range If the id is not present in the Manager.
+*/
+    virtual IndexType operator[](const String&) const = 0;
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -105,19 +119,6 @@ public:
 
 
 
-    /**
-     * @brief Returns the value that belongs to the id.
-     * @return The value that belongs to the id.
-     * @throw std::out_of_range If the value is not present in the Manager.
-
-    virtual String operator[](const IndexType) const = 0;
-
-    /**
-     * @brief Returns the id of the value.
-     * @return The id of the string value.
-     * @throw std::out_of_range If the id is not present in the Manager.
-
-    virtual IndexType operator[](const String&) const = 0;
 
     /**
      * @brief Returns the last inserted id.
