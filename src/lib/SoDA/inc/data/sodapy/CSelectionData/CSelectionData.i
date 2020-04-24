@@ -52,11 +52,12 @@
 //operátorok
 
 //CCoverageMatrix
-%rename(__eq__ccoveragematrix) soda::CCoverageMatrix::operator=(const soda::CCoverageMatrix::CCoverageMatrix&);
+%rename(__eq__ccoveragematrix) CCoverageMatrix::operator=(const CCoverageMatrix::CCoverageMatrix&);
 
 //CResultsMatrix
-%rename(__eq__cresultsmatrix) soda::CResultsMatrix::operator=(const soda::CResultsMatrix::CResultsMatrix&);
-
+%rename(__eq__cresultsmatrix) CResultsMatrix::operator=(const CResultsMatrix::CResultsMatrix&);
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
 
 
 %include "CBinaryIO.h"
