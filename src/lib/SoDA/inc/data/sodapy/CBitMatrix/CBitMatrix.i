@@ -45,16 +45,19 @@
 //operátorok
 
 //IBitMatrix
-%rename(__getitem__ibitmatrix) soda::IBitMatrix::operator[](soda::IBitMatrix::IndexType soda::IBitMatrix::row);
+%rename(__getitem__ibitmatrix) IBitMatrix::operator[](IBitMatrix::IndexType IBitMatrix::row);
 
 //CBitMatrix
-%rename(__eq__cbitmatrix) soda::CBitMatrix::operator=(const soda::CBitMatrix::CBitMatrix&);
+%rename(__eq__cbitmatrix) CBitMatrix::operator=(const CBitMatrix::CBitMatrix&);
 
 //CBitMatrix
-%rename(__eq__cbitlist) soda::CBitList::operator=(const soda::CBitList::CBitList&);
+%rename(__eq__cbitlist) CBitList::operator=(const CBitList::CBitList&);
 
 //IBitList
-%rename(__getitem__ibitlist) soda::IBitList::operator[](soda:IBitList::IndexType soda::IBitList::index);
+%rename(__getitem__ibitlist) IBitList::operator[](IBitList::IndexType IBitList::index);
+
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
 
 //IIterators
 
