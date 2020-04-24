@@ -68,86 +68,86 @@ public:
     /**
      * @brief Returns true if the ID is present in the Manager.
      * @return true if the ID is present in the Manager.
-     */
+   
     virtual bool containsValue(const String&) const;
 
     /**
      * @brief Returns the id of the value.
      * @return The id of the string value.
      * @throw std::out_of_range If the value is not present in the Manager.
-     */
+ 
     virtual IndexType getID(const String&) const;
 
     /**
      * @brief Returns the value that belongs to the id.
      * @return The value that belongs to the id.
      * @throw std::out_of_range If the index is not present in the Manager.
-     */
+    
     virtual String getValue(const IndexType) const;
 
     /**
      * @brief Returns the list of the available ids.
      * @return The list of the available ids.
-     */
+   
     virtual IntVector getIDList() const;
 
     /**
      * @brief Returns the list of the available values.
      * @return The list of the available values.
-     */
+    
     virtual StringVector getValueList() const;
 
     /**
      * @brief Returns the value that belongs to the id.
      * @return The value that belongs to the id.
      * @throw std::out_of_range If the value is not present in the Manager.
-     */
+    
     virtual String operator[](const IndexType) const;
 
     /**
      * @brief Returns the id of the value.
      * @return The id of the string value.
      * @throw std::out_of_range If the id is not present in the Manager.
-     */
+  
     virtual IndexType operator[](const String&) const;
 
     /**
      * @brief Returns the last inserted id.
      * @return The last inserted id.
      * @throw std::length_error If the manager is empty.
-     */
+   
     virtual IndexType getLastIndex() const;
 
     /**
      * @brief Returns the number of elements in the manager.
      * @return The number of elements in the manager.
-     */
+  
     virtual IndexType size() const; //cpp-hez kell
 
     /**
      * @brief Adds a value with the specified id.
-     */
+
     virtual void add(const IndexType, const String&);
 
     /**
      * @brief Adds a value to the manager as the last element.
-     */
+
     virtual void add(const String&);
 
     /**
      * @brief Removes an element by its id.
-     */
+ 
     virtual void remove(const IndexType);
 
     /**
      * @brief Removes an element by its value.
-     */
+ 
     virtual void remove(const String&);
 
     /**
      * @brief Clears the manager.
-     */
-    virtual void clear();
+
+    virtual void clear();     */
 
     /**
      * @brief Writes the content of the manager to the out.

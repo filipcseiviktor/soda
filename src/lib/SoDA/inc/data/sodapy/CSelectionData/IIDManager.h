@@ -41,98 +41,98 @@ public:
     /**
      * @brief Returns true if the ID is present in the Manager.
      * @return true if the ID is present in the Manager.
-     */
+ 
     virtual bool containsValue(const String&) const = 0;
 
     /**
      * @brief Returns the id of the value.
      * @return The id of the string value.
      * @throw std::out_of_range If the value is not present in the Manager.
-     */
+  
     virtual IndexType getID(const String&) const = 0;
 
     /**
      * @brief Returns the value that belongs to the id.
      * @return The value that belongs to the id.
      * @throw std::out_of_range If the id is not present in the Manager.
-     */
+
     virtual String getValue(const IndexType) const = 0;
 
     /**
      * @brief Returns the list of the available ids.
      * @return The list of the available ids.
-     */
+
     virtual IntVector getIDList() const = 0;
 
     /**
      * @brief Returns the list of the available values.
      * @return The list of the available values.
-     */
+  
     virtual StringVector getValueList() const = 0;
 
     /**
      * @brief Returns the value that belongs to the id.
      * @return The value that belongs to the id.
      * @throw std::out_of_range If the value is not present in the Manager.
-     */
+ 
     virtual String operator[](const IndexType) const = 0;
 
     /**
      * @brief Returns the id of the value.
      * @return The id of the string value.
      * @throw std::out_of_range If the id is not present in the Manager.
-     */
-    virtual IndexType operator[](const String&) const = 0;
+  
+    virtual IndexType operator[](const String&) const = 0;   */
 
     /**
      * @brief Returns the last inserted id.
      * @return The last inserted id.
      * @throw std::length_error If the manager is empty.
-     */
+
     virtual IndexType getLastIndex() const = 0;
 
     /**
      * @brief Returns the number of elements in the manager.
      * @return The number of elements in the manager.
-     */
+   
     virtual IndexType size() const = 0;
 
     /**
      * @brief Adds a value with the specified id.
-     */
+  
     virtual void add(const IndexType, const String&) = 0;
 
     /**
      * @brief Adds a value to the manager as the last element.
-     */
+  
     virtual void add(const String&) = 0;
 
     /**
      * @brief Removes an element by its id.
-     */
+
     virtual void remove(const IndexType) = 0;
 
     /**
      * @brief Removes an element by its value.
-     */
+ 
     virtual void remove(const String&) = 0;
 
     /**
      * @brief Clears the manager.
-     */
+  
     virtual void clear() = 0;
 
     /**
      * @brief Writes the content of the manager to the out.
      * @param out
-     */
+   */
     virtual void save(io::CBinaryIO* out, const io::CSoDAio::ChunkID = io::CSoDAio::IDMANAGER) const = 0;
 
     /**
      * @brief Loads the content of a manager from in.
      * @param in
-     */
-    virtual void load(io::CBinaryIO* in) = 0;
+   */
+    virtual void load(io::CBinaryIO* in) = 0;  
 };
 
 } // namespace soda
