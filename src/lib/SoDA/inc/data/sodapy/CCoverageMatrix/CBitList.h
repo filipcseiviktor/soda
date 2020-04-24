@@ -176,8 +176,8 @@ private:
     /**
      * @brief NIY operator =.
      * @return Reference to a CBitList object.
-   
-    CBitList& operator=(const CBitList&);  */
+   */
+    CBitList& operator=(const CBitList&);  
 
 private:
 
