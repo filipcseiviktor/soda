@@ -23,8 +23,8 @@
 		//https://www.swig.org/Doc2.0/Library.html#Library_std_string
 		// 8.4.2 a példa
 		
-		namespace soda{
-		using namespace std;
+		
+		namespace std{
 		%template(IntVector) vector<int>;
 		%template(StringVector) vector<String>;
 		%template(StringMap) map<IndexType, String>;
@@ -41,12 +41,23 @@
 //operátorok
 
 //CRevision
-%rename(__eq__crevision) soda::CRevision::operator=(const soda::CRevision::CRevision&);
-%rename(__getitem__crevision) soda::CRevision::operator[](const int soda::CRevision::rev);
+%rename(__eq__crevision) CRevision::operator=(const CRevision::CRevision&);
+
+
+%extend CRevision<T> {
+    T& __getitem__(int rev) {
+        return $self[i];
+     }
+}
+
 
 //IBitList
-%rename(__getitem__ibitlist) soda::IBitList::operator[](const soda::CRevision::IndexType soda::CRevision::index);
+%rename(__getitem__ibitlist) IBitList::operator[](const CRevision::IndexType CRevision::index);
 
+//CSoDAio
+%rename(__eq__csodaio) CSoDAio::operator=(const CSoDAio::CSoDAio&);
+
+//operátorok vége
 
 %include "SoDALibDefs.h"
 %include "IBitList.h"
