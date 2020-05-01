@@ -113,18 +113,19 @@ virtual void save(io::CBinaryIO* out, const io::CSoDAio::ChunkID chunk = io::CSo
         }
         bi.reset();
     }
+    /**
+     * @brief Returns the given row of the matrix as a bitlist.
+     * @param row  Row number.
+     * @return Row of the matrix as bitlist.
+  */
+    virtual IBitList& operator[](IndexType row) const = 0;   
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-    /**
-     * @brief Returns the given row of the matrix as a bitlist.
-     * @param row  Row number.
-     * @return Row of the matrix as bitlist.
-  
-    virtual IBitList& operator[](IndexType row) const = 0;   */
+    
 
 
 
