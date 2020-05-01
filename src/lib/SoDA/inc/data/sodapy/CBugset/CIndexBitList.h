@@ -88,9 +88,12 @@ public:
     IBitListIterator& end(); //cpp-hez kell
 
 
-
-
-
+    /**
+     * @brief Return the value at the given position of the vector.
+     * @param pos  Position of the element.
+     * @return Value at the given position of the vector.
+     */
+    bool operator[](IndexType pos) const;
 
 
 
@@ -161,12 +164,7 @@ public:
     void clear();
 
 
-    /**
-     * @brief Return the value at the given position of the vector.
-     * @param pos  Position of the element.
-     * @return Value at the given position of the vector.
-     
-    bool operator[](IndexType pos) const;*/
+
   
 private:
     class ListIterator;
