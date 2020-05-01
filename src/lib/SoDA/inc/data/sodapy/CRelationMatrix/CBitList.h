@@ -61,7 +61,12 @@ public:
     void set(IndexType index, bool value); //cpp-hez kell 
 
 
-
+/**
+     * @brief Returns the value stored at the given position in the vector.
+     * @param index  Position of the element.
+     * @return Value stored at the given position.
+*/
+    bool operator[](IndexType index) const;
 
 
 
@@ -138,12 +143,6 @@ public:
  
     void clear();
 
-    /**
-     * @brief Returns the value stored at the given position in the vector.
-     * @param index  Position of the element.
-     * @return Value stored at the given position.
-
-    bool operator[](IndexType index) const;
 
     /**
      * @brief Returns the size of the vector.
