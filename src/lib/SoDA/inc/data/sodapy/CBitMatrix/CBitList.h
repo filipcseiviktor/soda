@@ -79,6 +79,13 @@ public:
      * @return Size of the vector.
   */
     IndexType size() const; 
+    
+      /**
+     * @brief Returns the value stored at the given position in the vector.
+     * @param index  Position of the element.
+     * @return Value stored at the given position.
+	*/
+    bool operator[](IndexType index) const;
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -144,14 +151,6 @@ public:
      * @brief Set the object's attributes to default value.
 
     void clear();
-
-    /**
-     * @brief Returns the value stored at the given position in the vector.
-     * @param index  Position of the element.
-     * @return Value stored at the given position.
-
-    bool operator[](IndexType index) const;
-   
 
 
     /**
