@@ -94,7 +94,7 @@ public:
     /**
      * @brief Returns a reference to the test cases IIDManager.
      * @return Reference to the test cases IIDManager.
-     */
+
     virtual const IIDManager& getTestcases() const;
 
     /**

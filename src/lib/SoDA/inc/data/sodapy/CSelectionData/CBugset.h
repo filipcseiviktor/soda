@@ -59,7 +59,12 @@ public:
     virtual ~CBugset();//cpp-hez kell
 
 
-
+/**
+    * @brief Returns the reports of a specified revision number.
+    * @param revisionNumber  Revision number.
+    * @return Code elements and their time information fixed in the specified revision.
+*/
+    CodeElementReports& operator[](const String& revisionNumber) const;
 //////////////////////////////////////////////////////////////
 
 
@@ -74,12 +79,7 @@ public:
 
     CBugset(IIDManager* codeElements, IIDManager* revisions, ReportMap* reports, ReportDataMap* data);
 
-    /**
-    * @brief Returns the reports of a specified revision number.
-    * @param revisionNumber  Revision number.
-    * @return Code elements and their time information fixed in the specified revision.
-
-    CodeElementReports& operator[](const String& revisionNumber) const;
+    
 
     /**
     * @brief Returns the fixed code elements in a specified revision.
@@ -181,7 +181,7 @@ public:
     /**
     * @brief Adds multiple revision numbers to the bug set.
     * @param revisionNumbers  Specified revision numbers.
-    */
+  
     virtual void addRevision(const StringVector& revisionNumbers);
 
     /**
