@@ -68,7 +68,12 @@ public:
 */
     virtual IndexType operator[](const String&) const = 0;
 
-
+  /**
+     * @brief Returns the value that belongs to the id.
+     * @return The value that belongs to the id.
+     * @throw std::out_of_range If the value is not present in the Manager.
+   */
+    virtual String operator[](const IndexType) const = 0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -98,12 +103,7 @@ public:
   
     virtual StringVector getValueList() const = 0;
 
-    /**
-     * @brief Returns the value that belongs to the id.
-     * @return The value that belongs to the id.
-     * @throw std::out_of_range If the value is not present in the Manager.
-   
-    virtual String operator[](const IndexType) const = 0;
+  
 
 
 
