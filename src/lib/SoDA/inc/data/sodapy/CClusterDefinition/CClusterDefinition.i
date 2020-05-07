@@ -19,7 +19,6 @@
 		/* TEMPLATE: Instantiate a Python class called e.g IntVector which wraps a C++ vector<int> STL container */
 	namespace soda{
 		namespace std{
-		%apply unsigned long long *INPUT { u_int64_t }
 		
 		%template(IndexType) u_int64_t;
 		%template(RevNumType) unsigned int;
