@@ -26,7 +26,6 @@
 		/* TEMPLATE: Instantiate a Python class called e.g IntVector which wraps a C++ vector<int> STL container */
 	namespace soda{
 		namespace std{
-		%apply unsigned long long *INPUT { u_int64_t }
 		
 		%template(IndexType) u_int64_t;
 		%template(RevNumType) unsigned int;
@@ -82,7 +81,18 @@ __getitem__,__setitem__ for operator[]							//operator[]-oknal feluldefinialni 
 
 /*CBitMatrix*/
 	%rename(__eq__cbitmatrix) soda::CBitMatrix::CBitMatrix& operator=(const CBitMatrix&);
-
+	
+	
+/*long long miatt*/
+#ifdef SWIGWORDSIZE64
+%define PRIMITIVE_TYPEMAP(NEW_TYPE, TYPE)
+%clear NEW_TYPE;
+%apply TYPE { NEW_TYPE };
+%enddef // PRIMITIVE_TYPEMAP
+PRIMITIVE_TYPEMAP(long int, long long);
+PRIMITIVE_TYPEMAP(unsigned long int, long long);
+#undef PRIMITIVE_TYPEMAP
+#endif
 
 /* Parse the header file to generate wrappers */
 %include "SoDALibDefs.h"
