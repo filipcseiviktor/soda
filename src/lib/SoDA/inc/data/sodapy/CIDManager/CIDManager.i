@@ -22,7 +22,6 @@
 		/* TEMPLATE: Instantiate a Python class called e.g IntVector which wraps a C++ vector<int> STL container */
 	namespace soda{
 		namespace std{
-		%apply unsigned long long *INPUT { u_int64_t }
 		
 		%template(IndexType) u_int64_t;
 		%template(RevNumType) unsigned int;
@@ -94,6 +93,67 @@ __getitem__,__setitem__ for operator[]							//operator[]-oknal feluldefinialni 
 /* CSoDAio */ 
 	%rename(__eq__csodaio) soda::io::CSoDAio::CSoDAio& operator=(const CSoDAio&);
 
+	/* a cel, hogy a python oldalon a modul importalasa utan pl. ne "cidmanager.RELATION" -kent kelljen hivatkozzunk, hanem lehessen a kovetkezokepp:
+		"cbitlist.ChunkID.RELATION" */
+	/* https://stackoverflow.com/questions/50353506/swig-convert-c-enum-to-python-enum */
+	%inline %{
+		namespace soda{
+			namespace io{
+				enum ChunkID{
+					UNKNOWN_TYPE = 0,
+					COVERAGE = 123456,
+					RELATION,
+					IDMANAGER,
+					TCLIST,
+					PRLIST,
+					REVISIONS,
+					BITMATRIX,
+					BITLIST,
+					EXECUTION,
+					PASSED,
+					CHANGESET,
+					CODEELEMENT_TRACE,
+					REVLIST,
+					BUGSET
+				 };
+		}
+	}
+	%}
+	
+/* CBinaryIO */	
+	
+	%inline %{
+				namespace soda{
+					namespace io{
+						enum eOpenMode {
+							omRead,
+							omWrite
+						};
+				}
+			}
+			%}
+
+/* enum-hoz kell*/
+%pythoncode %{
+from enum import Enum
+def enum(prefix):
+    tmpD = {k:v for k,v in globals().items() if k.startswith(prefix + '_')}
+    for k,v in tmpD.items():
+        del globals()[k]
+    tmpD = {k[len(prefix)+1:]:v for k,v in tmpD.items()}
+    globals()[prefix] = Enum(prefix,tmpD)
+%}
+
+/*long long miatt*/
+#ifdef SWIGWORDSIZE64
+%define PRIMITIVE_TYPEMAP(NEW_TYPE, TYPE)
+%clear NEW_TYPE;
+%apply TYPE { NEW_TYPE };
+%enddef // PRIMITIVE_TYPEMAP
+PRIMITIVE_TYPEMAP(long int, long long);
+PRIMITIVE_TYPEMAP(unsigned long int, long long);
+#undef PRIMITIVE_TYPEMAP
+#endif
 	
 /* Parse the header file to generate wrappers */
 %include "SoDALibDefs.h"
